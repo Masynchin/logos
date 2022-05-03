@@ -1,6 +1,6 @@
 import { Circle, Shape, StrokeData, Svg } from "@svgdotjs/svg.js";
 
-interface Renderable {
+export interface Renderable {
   render(svg: Svg): Shape;
 }
 
