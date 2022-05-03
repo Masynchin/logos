@@ -9,7 +9,7 @@ import {
 import { SVG } from "@svgdotjs/svg.js";
 import { MyCircle, MyPolyline, WithStrokes } from "./figures";
 
-type Icon = {
+type LogoSettings = {
   width: string;
   stroke: string;
   strokeWidth: string;
@@ -29,7 +29,7 @@ const strokeWidth$ = fromEvent(
   "input"
 ).pipe(pluck("target", "value"), startWith(5));
 
-const iconSettings$: Observable<Icon> = combineLatest([
+const logoSettings$: Observable<LogoSettings> = combineLatest([
   width$,
   stroke$,
   strokeWidth$,
@@ -43,12 +43,12 @@ const logo = SVG()
   .addTo(document.getElementById("logo"))
   .viewbox("0 0 161 125");
 
-iconSettings$.subscribe((iconSettings) => {
+logoSettings$.subscribe((logoSettings) => {
   const stroke = {
-    color: iconSettings.stroke,
-    width: +iconSettings.strokeWidth,
+    color: logoSettings.stroke,
+    width: +logoSettings.strokeWidth,
   };
-  logo.clear().width(iconSettings.width);
+  logo.clear().width(logoSettings.width);
   new WithStrokes(
     [
       new MyPolyline([
