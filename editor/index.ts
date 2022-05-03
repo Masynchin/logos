@@ -6,6 +6,7 @@ import {
   pluck,
   startWith,
 } from "rxjs";
+import { SVG } from "@svgdotjs/svg.js";
 
 type Icon = {
   width: string;
@@ -37,9 +38,26 @@ const iconSettings$: Observable<Icon> = combineLatest([
   })
 );
 
-const icon = document.getElementById("icon");
+const logo = SVG()
+  .addTo(document.getElementById("logo"))
+  .viewbox("0 0 161 125");
+
 iconSettings$.subscribe((iconSettings) => {
-  icon.style.width = iconSettings.width;
-  icon.style.stroke = iconSettings.stroke;
-  icon.style.strokeWidth = iconSettings.strokeWidth;
+  const stroke = {
+    color: iconSettings.stroke,
+    width: +iconSettings.strokeWidth,
+  };
+  logo.clear().width(iconSettings.width);
+  logo
+    .polyline([
+      [0, 0],
+      [161, 0],
+      [161, 125],
+      [121, 100],
+      [0, 100],
+      [0, 0],
+    ])
+    .stroke(stroke);
+  logo.circle(100).center(40, 50).radius(10).stroke(stroke);
+  logo.circle(100).center(80, 50).radius(10).stroke(stroke);
 });

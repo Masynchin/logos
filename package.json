@@ -3,6 +3,7 @@
     "build": "webpack --mode production"
   },
   "dependencies": {
+    "@svgdotjs/svg.js": "^3.1.2",
     "rxjs": "^7.5.5"
   },
   "devDependencies": {
