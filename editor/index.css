@@ -1,0 +1,51 @@
+* {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  grid-template-areas:
+    "aside-title main-title"
+    "aside main";
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+}
+
+body h2#aside-title {
+  grid-area: aside-title;
+  border-right: #7c7cea 1px solid;
+  border-bottom: #7c7cea 1px solid;
+  margin: 0;
+  padding: 1rem;
+}
+
+body aside {
+  grid-area: aside;
+
+  border-right: #7c7cea 1px solid;
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+}
+
+body h2#main-title {
+  grid-area: main-title;
+  border-bottom: #7c7cea 1px solid;
+  margin: 0;
+  padding: 1rem;
+}
+
+body main {
+  grid-area: main;
+  padding: 1rem;
+}
+
+body main svg {
+  padding: 10px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}

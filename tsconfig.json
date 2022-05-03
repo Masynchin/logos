@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "module": "esnext",
+    "sourceMap": true,
+    "target": "es5",
+    "lib": ["dom", "es6", "es2018"],
+    "moduleResolution": "node"
+  },
+  "files": ["editor/index.ts"],
+}

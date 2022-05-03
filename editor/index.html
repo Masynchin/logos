@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <script src="dist/bundle.js" async></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h2 id="aside-title">Icon settings</h2>
+    <aside>
+      <section>
+        <h3>Appearance</h3>
+        <ul>
+          <li>
+            <label>
+              Width:
+              <input type="number" id="width" value="300" />
+            </label>
+          </li>
+          <li>
+            <label>
+              Stroke:
+              <input type="color" id="stroke" />
+            </label>
+          </li>
+          <li>
+            <label>
+              Stroke-width:
+              <input type="number" id="strokeWidth" value="5" />
+            </label>
+          </li>
+        </ul>
+      </section>
+    </aside>
+    <h2 id="main-title">Icon</h2>
+    <main>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        version="1.1"
+        viewBox="0 0 161 125"
+        id="icon"
+      >
+        <polyline points="0 0, 161 0, 161 125, 121 100, 0 100, 0 0" />
+        <circle cx="40" cy="50" r="12" />
+        <circle cx="80" cy="50" r="12" />
+      </svg>
+    </main>
+  </body>
+</html>
