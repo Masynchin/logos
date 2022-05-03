@@ -1,4 +1,4 @@
-# logos
+# Logos
 
 Here I store logos for my projects.
 I also created editor for creating them in-place.
