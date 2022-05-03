@@ -31,6 +31,16 @@ body aside {
   flex-direction: column;
 }
 
+body aside ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+body aside ul li label {
+  display: flex;
+  align-items: center;
+}
+
 body h2#main-title {
   grid-area: main-title;
   border-bottom: #7c7cea 1px solid;
