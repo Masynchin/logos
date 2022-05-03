@@ -7,6 +7,7 @@ import {
   startWith,
 } from "rxjs";
 import { SVG } from "@svgdotjs/svg.js";
+import { MyCircle, MyPolyline, WithStrokes } from "./figures";
 
 type Icon = {
   width: string;
@@ -48,16 +49,19 @@ iconSettings$.subscribe((iconSettings) => {
     width: +iconSettings.strokeWidth,
   };
   logo.clear().width(iconSettings.width);
-  logo
-    .polyline([
-      [0, 0],
-      [161, 0],
-      [161, 125],
-      [121, 100],
-      [0, 100],
-      [0, 0],
-    ])
-    .stroke(stroke);
-  logo.circle(100).center(40, 50).radius(10).stroke(stroke);
-  logo.circle(100).center(80, 50).radius(10).stroke(stroke);
+  new WithStrokes(
+    [
+      new MyPolyline([
+        [0, 0],
+        [161, 0],
+        [161, 125],
+        [121, 100],
+        [0, 100],
+        [0, 0],
+      ]),
+      new MyCircle(40, 50, 10),
+      new MyCircle(80, 50, 10),
+    ],
+    stroke
+  ).render(logo);
 });
