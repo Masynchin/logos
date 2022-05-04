@@ -1,7 +1,11 @@
 import { Observable, of } from "rxjs";
 import { MyCircle, MyPolyline } from "./figures";
 
-export class StreamCircle {
+export interface Stream<T> {
+  asObservable(): Observable<T>;
+}
+
+export class StreamCircle implements Stream<MyCircle> {
   private x: number;
   private y: number;
   private radius: number;
@@ -17,7 +21,7 @@ export class StreamCircle {
   }
 }
 
-export class StreamPolyline {
+export class StreamPolyline implements Stream<MyPolyline> {
   private points: [number, number][];
 
   constructor(points: [number, number][]) {

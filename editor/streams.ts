@@ -9,7 +9,7 @@ import {
 } from "rxjs";
 import { MyCircle, MyPolyline, Renderable } from "./figures";
 import { LogoSettings } from "./logo";
-import { StreamCircle, StreamPolyline } from "./figureStreams";
+import { Stream, StreamCircle, StreamPolyline } from "./figureStreams";
 
 export class MainStream {
   private figures: StreamFigures;
@@ -29,28 +29,24 @@ export class MainStream {
 }
 
 export class StreamFigures {
-  private circle1: StreamCircle;
-  private circle2: StreamCircle;
-  private polyline: StreamPolyline;
+  private streams: Stream<Renderable>[];
 
   constructor() {
-    this.circle1 = new StreamCircle(40, 50, 10);
-    this.circle2 = new StreamCircle(80, 50, 10);
-    this.polyline = new StreamPolyline([
-      [0, 0],
-      [161, 0],
-      [161, 125],
-      [121, 100],
-      [0, 100],
-      [0, 0],
-    ]);
+    this.streams = [
+      new StreamCircle(40, 50, 10),
+      new StreamCircle(80, 50, 10),
+      new StreamPolyline([
+        [0, 0],
+        [161, 0],
+        [161, 125],
+        [121, 100],
+        [0, 100],
+        [0, 0],
+      ]),
+    ];
   }
   asObservable(): Observable<Renderable[]> {
-    return combineLatest([
-      this.circle1.asObservable(),
-      this.circle2.asObservable(),
-      this.polyline.asObservable(),
-    ]);
+    return combineLatest(this.streams.map((s) => s.asObservable()));
   }
 }
 
