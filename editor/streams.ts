@@ -3,11 +3,10 @@ import {
   fromEvent,
   map,
   Observable,
-  of,
   pluck,
   startWith,
 } from "rxjs";
-import { MyCircle, MyPolyline, Renderable } from "./figures";
+import { Renderable } from "./figures";
 import { LogoSettings } from "./logo";
 import { Stream, StreamCircle, StreamPolyline } from "./figureStreams";
 
