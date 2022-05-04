@@ -3,10 +3,46 @@ import {
   fromEvent,
   map,
   Observable,
+  of,
   pluck,
   startWith,
 } from "rxjs";
+import { MyCircle, MyPolyline, Renderable } from "./figures";
 import { LogoSettings } from "./logo";
+
+export class MainStream {
+  private figures: StreamFigures;
+  private logoSettings: StreamLogoSettings;
+
+  constructor(document: Document) {
+    this.figures = new StreamFigures();
+    this.logoSettings = new StreamLogoSettings(document);
+  }
+
+  asObservable(): Observable<[Renderable[], LogoSettings]> {
+    return combineLatest([
+      this.figures.asObservable(),
+      this.logoSettings.asObservable(),
+    ]);
+  }
+}
+
+export class StreamFigures {
+  asObservable(): Observable<Renderable[]> {
+    return of([
+      new MyPolyline([
+        [0, 0],
+        [161, 0],
+        [161, 125],
+        [121, 100],
+        [0, 100],
+        [0, 0],
+      ]),
+      new MyCircle(40, 50, 10),
+      new MyCircle(80, 50, 10),
+    ]);
+  }
+}
 
 export class StreamLogoSettings {
   private logoWidth: StreamLogoWidth;
