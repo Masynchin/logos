@@ -7,8 +7,9 @@ import {
   startWith,
 } from "rxjs";
 import { LogoSettings } from "../logoSettings";
+import { Stream } from "../stream";
 
-export class StreamLogoSettings {
+export class StreamLogoSettings implements Stream<LogoSettings> {
   private logoWidth: StreamLogoWidth;
   private logoStroke: StreamLogoStroke;
   private logoStrokeWidth: StreamLogoStrokeWidth;
@@ -32,7 +33,7 @@ export class StreamLogoSettings {
   }
 }
 
-class StreamLogoWidth {
+class StreamLogoWidth implements Stream<unknown> {
   private document: Document;
 
   constructor(document: Document) {
@@ -47,7 +48,7 @@ class StreamLogoWidth {
   }
 }
 
-class StreamLogoStroke {
+class StreamLogoStroke implements Stream<unknown> {
   private document: Document;
 
   constructor(document: Document) {
@@ -62,7 +63,7 @@ class StreamLogoStroke {
   }
 }
 
-class StreamLogoStrokeWidth {
+class StreamLogoStrokeWidth implements Stream<unknown> {
   private document: Document;
 
   constructor(document: Document) {

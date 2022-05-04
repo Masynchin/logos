@@ -4,7 +4,7 @@ import { Stream } from "../stream";
 import { StreamCircle } from "./circle";
 import { StreamPolyline } from "./polyline";
 
-export class StreamFigures {
+export class StreamFigures implements Stream<Figure[]> {
   private streams: Stream<Figure>[];
 
   constructor() {

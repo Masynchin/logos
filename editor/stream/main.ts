@@ -3,8 +3,9 @@ import { Figure } from "../figure";
 import { StreamFigures } from "./figures";
 import { LogoSettings } from "../logoSettings";
 import { StreamLogoSettings } from "./logoSettings";
+import { Stream } from "../stream";
 
-export class MainStream {
+export class MainStream implements Stream<[Figure[], LogoSettings]> {
   private figures: StreamFigures;
   private logoSettings: StreamLogoSettings;
 
