@@ -6,48 +6,7 @@ import {
   pluck,
   startWith,
 } from "rxjs";
-import { Renderable } from "./figures";
-import { LogoSettings } from "./logo";
-import { Stream, StreamCircle, StreamPolyline } from "./figureStreams";
-
-export class MainStream {
-  private figures: StreamFigures;
-  private logoSettings: StreamLogoSettings;
-
-  constructor(document: Document) {
-    this.figures = new StreamFigures();
-    this.logoSettings = new StreamLogoSettings(document);
-  }
-
-  asObservable(): Observable<[Renderable[], LogoSettings]> {
-    return combineLatest([
-      this.figures.asObservable(),
-      this.logoSettings.asObservable(),
-    ]);
-  }
-}
-
-export class StreamFigures {
-  private streams: Stream<Renderable>[];
-
-  constructor() {
-    this.streams = [
-      new StreamCircle(40, 50, 10),
-      new StreamCircle(80, 50, 10),
-      new StreamPolyline([
-        [0, 0],
-        [161, 0],
-        [161, 125],
-        [121, 100],
-        [0, 100],
-        [0, 0],
-      ]),
-    ];
-  }
-  asObservable(): Observable<Renderable[]> {
-    return combineLatest(this.streams.map((s) => s.asObservable()));
-  }
-}
+import { LogoSettings } from "../logoSettings";
 
 export class StreamLogoSettings {
   private logoWidth: StreamLogoWidth;

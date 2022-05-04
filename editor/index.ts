@@ -1,6 +1,6 @@
 import { SVG } from "@svgdotjs/svg.js";
-import { WithStrokes } from "./figures";
-import { MainStream } from "./streams";
+import { WithStrokes } from "./figure/withStroke";
+import { MainStream } from "./stream/main";
 
 const logo = SVG()
   .addTo(document.getElementById("logo"))
