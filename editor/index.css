@@ -29,14 +29,19 @@ body aside {
   grid-area: aside;
 
   border-right: #7c7cea 1px solid;
-  padding: 0.5rem 1.5rem;
 
   display: flex;
   flex-direction: column;
 }
 
+body aside section {
+  padding: 1rem 1.5rem;
+  border-bottom: #7c7cea 1px solid;
+}
+
 body aside section h3 {
   font-size: 2em;
+  margin: 0.5rem 0;
 }
 
 body aside section ul {
