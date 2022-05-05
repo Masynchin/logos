@@ -7,10 +7,10 @@ import { StreamPolyline } from "./polyline";
 export class StreamFigures implements Stream<Figure[]> {
   private streams: Stream<Figure>[];
 
-  constructor() {
+  constructor(document: Document, editor: HTMLElement) {
     this.streams = [
-      new StreamCircle(40, 50, 10),
-      new StreamCircle(80, 50, 10),
+      new StreamCircle(document, editor),
+      new StreamCircle(document, editor),
       new StreamPolyline([
         [0, 0],
         [161, 0],

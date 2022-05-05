@@ -10,7 +10,10 @@ export class MainStream implements Stream<[Figure[], LogoSettings]> {
   private logoSettings: StreamLogoSettings;
 
   constructor(document: Document) {
-    this.figures = new StreamFigures();
+    this.figures = new StreamFigures(
+      document,
+      document.getElementById("editor")
+    );
     this.logoSettings = new StreamLogoSettings(document);
   }
 
