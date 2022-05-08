@@ -13,6 +13,6 @@ stream$.asObservable().subscribe(([figures, logoSettings]) => {
     color: logoSettings.stroke,
     width: +logoSettings.strokeWidth,
   };
-  logo.clear().width(logoSettings.width);
+  logo.clear().width(logoSettings.width).fill("none");
   new WithStrokes(figures, stroke).render(logo);
 });
