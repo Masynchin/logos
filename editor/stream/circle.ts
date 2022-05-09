@@ -1,17 +1,9 @@
-import { combineLatest, map, Observable, tap } from "rxjs";
+import { combineLatest, map, Observable } from "rxjs";
 import { MyCircle } from "../figure/circle";
 import { Stream } from "../stream";
 import { InputNumber } from "../input/number";
-import {
-  H3,
-  Input,
-  Label,
-  Li,
-  MyElement,
-  Section,
-  TextElement,
-  Ul,
-} from "../elements";
+import { H3, Label, Li, Section, TextElement, Ul } from "../elements";
+
 export class StreamCircle implements Stream<MyCircle> {
   private xStream: InputNumber;
   private yStream: InputNumber;
