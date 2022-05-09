@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 161 125" fill="none">
   <polyline points="0 0, 161 0, 161 125, 121 100, 0 100, 0 0"/>
-  <circle cx="40" cy="50" r="10"/>
-  <circle cx="80" cy="50" r="10"/>
+  <circle r="10" cx="40" cy="50" stroke-width="5" stroke="#000000"></circle>
+  <circle r="10" cx="80" cy="50" stroke-width="5" stroke="#000000"></circle>
+  <polyline points="0,0 161,0 161,125 121,100 0,100 0,0" stroke-width="5" stroke="#000000"></polyline>
 </svg>
