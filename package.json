@@ -1,6 +1,7 @@
 {
   "scripts": {
     "build": "webpack --mode production",
+    "build-watch": "webpack --mode production --watch",
     "lint": "eslint . --ext .ts"
   },
   "dependencies": {

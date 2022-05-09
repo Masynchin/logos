@@ -2,7 +2,6 @@ const path = require("path");
 
 module.exports = {
   entry: "./editor/index.ts",
-  watch: true,
   module: {
     rules: [
       {
