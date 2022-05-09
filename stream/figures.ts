@@ -1,4 +1,4 @@
-import { Observable, Subject, tap } from "rxjs";
+import { Observable, Subject } from "rxjs";
 import { Figure } from "../figure";
 import { Stream } from "../stream";
 import { StreamCircle } from "./circle";
@@ -29,6 +29,6 @@ export class StreamFigures implements Stream<Figure[]> {
   }
   asObservable(): Observable<Figure[]> {
     this.streams.forEach((s) => this.add.next(s.asObservable()));
-    return this.dynamicObservables.pipe(tap(console.log));
+    return this.dynamicObservables;
   }
 }

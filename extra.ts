@@ -35,7 +35,6 @@ export function dynamicCombineLatest(startingObservables: Observable<any>[]) {
   const addToObservables = add.pipe(
     tap({
       next: (obs) => {
-        console.log("add");
         // we need to make sure that the Observables in the list will immediately start to emit
         // the last value they emitted. In this way we are sure that, as soon as the new added Observable emits somthing,
         // the last value emitted by the previous Observables will be considered
@@ -56,7 +55,6 @@ export function dynamicCombineLatest(startingObservables: Observable<any>[]) {
       next: (obs) => {
         const index =
           observablesPotentiallyWithLastValueImmediatelyEmitted.indexOf(obs);
-        console.log("remove");
         // we simply remove the Observable from the list and it "last value"
         observablesPotentiallyWithLastValueImmediatelyEmitted.splice(index, 1);
         observables.splice(index, 1);
@@ -78,7 +76,6 @@ export function dynamicCombineLatest(startingObservables: Observable<any>[]) {
   // when the relative Subjects emit
   merge(addToObservables, removeFromObservables).subscribe({
     next: () => {
-      console.log("new start");
       // we notify that a change in the Observable list has occurred and therefore we need to unsubscribe the previous "combineLatest"
       // and subscribe to the new one we are going to build
       start.next(observablesPotentiallyWithLastValueImmediatelyEmitted);
@@ -104,7 +101,6 @@ export function dynamicCombineLatest(startingObservables: Observable<any>[]) {
             })
           )
       );
-      console.log("add or remove");
       // eventually this is the Observable created by combineLatest with the expected array of Observables
       const _combineLatest = combineLatest(
         _observablesSavingLastValueAndSignallingRemove
