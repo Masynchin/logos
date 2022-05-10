@@ -7,7 +7,6 @@ import { Signal } from "../input/signal";
 
 export class WidgetPolyline implements Widget<MyPolyline> {
   private pointsStream: InputText;
-  private subject: Subject<MyPolyline>;
   private deleteSignal: Signal;
   private document: Document;
   private editor: HTMLElement;
