@@ -23,7 +23,7 @@ export class WidgetPolyline implements Widget<MyPolyline> {
 
   asObservable(): Observable<MyPolyline> {
     new Section([
-      new H3("Circle"),
+      new H3("Polyline"),
       this.deleteSignal,
       new Ul([
         new Li(new Label([new TextElement("Points: "), this.pointsStream])),
