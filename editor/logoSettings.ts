@@ -1,5 +1,9 @@
 export type LogoSettings = {
   width: string;
-  stroke: string;
-  strokeWidth: string;
+  stroke: Stroke;
+};
+
+type Stroke = {
+  color: string;
+  width: number;
 };

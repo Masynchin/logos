@@ -17,12 +17,8 @@ class Editor {
     new MainStream(this.document)
       .asObservable()
       .subscribe(([figures, logoSettings]) => {
-        const stroke = {
-          color: logoSettings.stroke,
-          width: +logoSettings.strokeWidth,
-        };
         logo.clear().width(logoSettings.width).fill("none");
-        new WithStrokes(figures, stroke).render(logo);
+        new WithStrokes(figures, logoSettings.stroke).render(logo);
       });
   }
 }

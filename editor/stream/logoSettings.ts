@@ -27,7 +27,7 @@ export class StreamLogoSettings implements Stream<LogoSettings> {
       this.logoStrokeWidth.asObservable(),
     ]).pipe(
       map(([width, stroke, strokeWidth]: [string, string, string]) => {
-        return { width, stroke, strokeWidth };
+        return { width, stroke: { color: stroke, width: +strokeWidth } };
       })
     );
   }
