@@ -17,14 +17,7 @@ export class WidgetFigures implements Widget<Figure[]> {
     this.widgets = [
       new WidgetCircle(document, editor),
       new WidgetCircle(document, editor),
-      new WidgetPolyline([
-        [0, 0],
-        [161, 0],
-        [161, 125],
-        [121, 100],
-        [0, 100],
-        [0, 0],
-      ]),
+      new WidgetPolyline(document, editor),
     ];
   }
   asObservable(): Observable<Figure[]> {
