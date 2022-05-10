@@ -1,6 +1,6 @@
 import { SVG } from "@svgdotjs/svg.js";
 import { WithStrokes } from "./figure/withStroke";
-import { MainStream } from "./stream/main";
+import { MainWidget } from "./widget/main";
 
 class Editor {
   private document: Document;
@@ -14,7 +14,7 @@ class Editor {
   run(): void {
     const logo = SVG().addTo(this.logoElement).viewbox("0 0 161 125");
 
-    new MainStream(this.document)
+    new MainWidget(this.document)
       .asObservable()
       .subscribe(([figures, logoSettings]) => {
         logo.clear().width(logoSettings.width).fill("none");

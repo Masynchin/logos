@@ -1,20 +1,20 @@
 import { combineLatest, Observable } from "rxjs";
 import { Figure } from "../figure";
-import { StreamFigures } from "./figures";
+import { WidgetFigures } from "./figures";
 import { LogoSettings } from "../logoSettings";
-import { StreamLogoSettings } from "./logoSettings";
-import { Stream } from "../stream";
+import { WidgetLogoSettings } from "./logoSettings";
+import { Widget } from "../widget";
 
-export class MainStream implements Stream<[Figure[], LogoSettings]> {
-  private figures: StreamFigures;
-  private logoSettings: StreamLogoSettings;
+export class MainWidget implements Widget<[Figure[], LogoSettings]> {
+  private figures: WidgetFigures;
+  private logoSettings: WidgetLogoSettings;
 
   constructor(document: Document) {
-    this.figures = new StreamFigures(
+    this.figures = new WidgetFigures(
       document,
       document.getElementById("editor")
     );
-    this.logoSettings = new StreamLogoSettings(document);
+    this.logoSettings = new WidgetLogoSettings(document);
   }
 
   asObservable(): Observable<[Figure[], LogoSettings]> {

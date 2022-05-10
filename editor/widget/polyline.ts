@@ -1,8 +1,8 @@
 import { Observable, BehaviorSubject } from "rxjs";
 import { MyPolyline } from "../figure/polyline";
-import { Stream } from "../stream";
+import { Widget } from "../widget";
 
-export class StreamPolyline implements Stream<MyPolyline> {
+export class WidgetPolyline implements Widget<MyPolyline> {
   private points: [number, number][];
   private subject: BehaviorSubject<MyPolyline>;
 

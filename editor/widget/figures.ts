@@ -1,12 +1,12 @@
 import { Observable, Subject } from "rxjs";
 import { Figure } from "../figure";
-import { Stream } from "../stream";
-import { StreamCircle } from "./circle";
-import { StreamPolyline } from "./polyline";
+import { Widget } from "../widget";
+import { WidgetCircle } from "./circle";
+import { WidgetPolyline } from "./polyline";
 import { dynamicCombineLatest } from "../extra";
 
-export class StreamFigures implements Stream<Figure[]> {
-  private streams: Stream<Figure>[];
+export class WidgetFigures implements Widget<Figure[]> {
+  private widgets: Widget<Figure>[];
   private dynamicObservables: Observable<any[]>;
   private add: Subject<Observable<any>>;
 
@@ -14,10 +14,10 @@ export class StreamFigures implements Stream<Figure[]> {
     const { dynamicObservables, add } = dynamicCombineLatest([]);
     this.dynamicObservables = dynamicObservables;
     this.add = add;
-    this.streams = [
-      new StreamCircle(document, editor),
-      new StreamCircle(document, editor),
-      new StreamPolyline([
+    this.widgets = [
+      new WidgetCircle(document, editor),
+      new WidgetCircle(document, editor),
+      new WidgetPolyline([
         [0, 0],
         [161, 0],
         [161, 125],
@@ -28,7 +28,7 @@ export class StreamFigures implements Stream<Figure[]> {
     ];
   }
   asObservable(): Observable<Figure[]> {
-    this.streams.forEach((s) => this.add.next(s.asObservable()));
+    this.widgets.forEach((s) => this.add.next(s.asObservable()));
     return this.dynamicObservables;
   }
 }
