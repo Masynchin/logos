@@ -16,9 +16,9 @@ class Editor {
 
     new MainWidget(this.document)
       .asObservable()
-      .subscribe(([figures, logoSettings]) => {
-        logo.clear().width(logoSettings.width).fill("none");
-        new WithStrokes(figures, logoSettings.stroke).render(logo);
+      .subscribe(([figures, style]) => {
+        logo.clear().width(style.width).fill("none");
+        new WithStrokes(figures, style.stroke).render(logo);
       });
   }
 }

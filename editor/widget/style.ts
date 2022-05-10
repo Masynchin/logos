@@ -6,10 +6,10 @@ import {
   pluck,
   startWith,
 } from "rxjs";
-import { LogoSettings } from "../logoSettings";
+import { Style } from "../style";
 import { Widget } from "../widget";
 
-export class WidgetLogoSettings implements Widget<LogoSettings> {
+export class WidgetStyle implements Widget<Style> {
   private logoWidth: WidgetLogoWidth;
   private logoStroke: WidgetLogoStroke;
   private logoStrokeWidth: WidgetLogoStrokeWidth;
@@ -20,7 +20,7 @@ export class WidgetLogoSettings implements Widget<LogoSettings> {
     this.logoStrokeWidth = new WidgetLogoStrokeWidth(document);
   }
 
-  asObservable(): Observable<LogoSettings> {
+  asObservable(): Observable<Style> {
     return combineLatest([
       this.logoWidth.asObservable(),
       this.logoStroke.asObservable(),

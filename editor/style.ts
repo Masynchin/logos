@@ -1,4 +1,4 @@
-export type LogoSettings = {
+export type Style = {
   width: string;
   stroke: Stroke;
 };

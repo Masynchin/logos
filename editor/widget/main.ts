@@ -1,26 +1,26 @@
 import { combineLatest, Observable } from "rxjs";
 import { Figure } from "../figure";
 import { WidgetFigures } from "./figures";
-import { LogoSettings } from "../logoSettings";
-import { WidgetLogoSettings } from "./logoSettings";
+import { Style } from "../style";
+import { WidgetStyle } from "./style";
 import { Widget } from "../widget";
 
-export class MainWidget implements Widget<[Figure[], LogoSettings]> {
+export class MainWidget implements Widget<[Figure[], Style]> {
   private figures: WidgetFigures;
-  private logoSettings: WidgetLogoSettings;
+  private style: WidgetStyle;
 
   constructor(document: Document) {
     this.figures = new WidgetFigures(
       document,
       document.getElementById("editor")
     );
-    this.logoSettings = new WidgetLogoSettings(document);
+    this.style = new WidgetStyle(document);
   }
 
-  asObservable(): Observable<[Figure[], LogoSettings]> {
+  asObservable(): Observable<[Figure[], Style]> {
     return combineLatest([
       this.figures.asObservable(),
-      this.logoSettings.asObservable(),
+      this.style.asObservable(),
     ]);
   }
 }
