@@ -1,11 +1,11 @@
 import { combineLatest, map, Observable, takeUntil } from "rxjs";
 import { MyCircle } from "../figure/circle";
-import { Stream } from "../stream";
+import { Widget } from "../widget";
 import { InputNumber } from "../input/number";
 import { Signal } from "../input/signal";
 import { H3, Label, Li, Section, TextElement, Ul } from "../elements";
 
-export class StreamCircle implements Stream<MyCircle> {
+export class WidgetCircle implements Widget<MyCircle> {
   private xStream: InputNumber;
   private yStream: InputNumber;
   private radiusStream: InputNumber;

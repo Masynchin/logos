@@ -7,8 +7,8 @@ body {
   height: 100vh;
   display: grid;
   grid-template-areas:
-    "aside-title main-title"
-    "aside main";
+    "main-title aside-title"
+    "main aside";
   grid-template-columns: auto 1fr;
   grid-template-rows: auto 1fr;
 }
@@ -19,23 +19,41 @@ body h2 {
   padding: 1.5rem;
 }
 
+body h2#main-title {
+  grid-area: main-title;
+  border-bottom: #7c7cea 1px solid;
+}
+
+body main {
+  grid-area: main;
+  padding: 1.5rem;
+}
+
+body main svg {
+  padding: 10px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 body h2#aside-title {
   grid-area: aside-title;
-  border-right: #7c7cea 1px solid;
+  border-left: #7c7cea 1px solid;
   border-bottom: #7c7cea 1px solid;
 }
 
 body aside {
   grid-area: aside;
 
-  border-right: #7c7cea 1px solid;
+  border-left: #7c7cea 1px solid;
 
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 body aside section {
   padding: 1rem 1.5rem;
+  border-right: #7c7cea 1px solid;
   border-bottom: #7c7cea 1px solid;
 }
 
@@ -62,20 +80,4 @@ body aside section ul li label input {
   margin-left: 0.25em;
   font-size: 1.25em;
   width: 10rem;
-}
-
-body h2#main-title {
-  grid-area: main-title;
-  border-bottom: #7c7cea 1px solid;
-}
-
-body main {
-  grid-area: main;
-  padding: 1.5rem;
-}
-
-body main svg {
-  padding: 10px;
-  stroke-linecap: round;
-  stroke-linejoin: round;
 }

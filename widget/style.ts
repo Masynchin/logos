@@ -6,34 +6,34 @@ import {
   pluck,
   startWith,
 } from "rxjs";
-import { LogoSettings } from "../logoSettings";
-import { Stream } from "../stream";
+import { Style } from "../style";
+import { Widget } from "../widget";
 
-export class StreamLogoSettings implements Stream<LogoSettings> {
-  private logoWidth: StreamLogoWidth;
-  private logoStroke: StreamLogoStroke;
-  private logoStrokeWidth: StreamLogoStrokeWidth;
+export class WidgetStyle implements Widget<Style> {
+  private logoWidth: WidgetLogoWidth;
+  private logoStroke: WidgetLogoStroke;
+  private logoStrokeWidth: WidgetLogoStrokeWidth;
 
   constructor(document: Document) {
-    this.logoWidth = new StreamLogoWidth(document);
-    this.logoStroke = new StreamLogoStroke(document);
-    this.logoStrokeWidth = new StreamLogoStrokeWidth(document);
+    this.logoWidth = new WidgetLogoWidth(document);
+    this.logoStroke = new WidgetLogoStroke(document);
+    this.logoStrokeWidth = new WidgetLogoStrokeWidth(document);
   }
 
-  asObservable(): Observable<LogoSettings> {
+  asObservable(): Observable<Style> {
     return combineLatest([
       this.logoWidth.asObservable(),
       this.logoStroke.asObservable(),
       this.logoStrokeWidth.asObservable(),
     ]).pipe(
       map(([width, stroke, strokeWidth]: [string, string, string]) => {
-        return { width, stroke, strokeWidth };
+        return { width, stroke: { color: stroke, width: +strokeWidth } };
       })
     );
   }
 }
 
-class StreamLogoWidth implements Stream<unknown> {
+class WidgetLogoWidth implements Widget<unknown> {
   private document: Document;
 
   constructor(document: Document) {
@@ -48,7 +48,7 @@ class StreamLogoWidth implements Stream<unknown> {
   }
 }
 
-class StreamLogoStroke implements Stream<unknown> {
+class WidgetLogoStroke implements Widget<unknown> {
   private document: Document;
 
   constructor(document: Document) {
@@ -63,7 +63,7 @@ class StreamLogoStroke implements Stream<unknown> {
   }
 }
 
-class StreamLogoStrokeWidth implements Stream<unknown> {
+class WidgetLogoStrokeWidth implements Widget<unknown> {
   private document: Document;
 
   constructor(document: Document) {

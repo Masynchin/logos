@@ -2,9 +2,9 @@ import { Shape, Svg } from "@svgdotjs/svg.js";
 import { Figure } from "../figure";
 
 export class MyPolyline implements Figure {
-  private points: [number, number][];
+  private points: [number, number][] | string;
 
-  constructor(points: [number, number][]) {
+  constructor(points: [number, number][] | string) {
     this.points = points;
   }
 

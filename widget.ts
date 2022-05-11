@@ -1,5 +1,5 @@
 import { Observable } from "rxjs";
 
-export interface Stream<T> {
+export interface Widget<T> {
   asObservable(): Observable<T>;
 }
