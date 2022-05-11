@@ -28,3 +28,11 @@ Then open the editor:
 ~~~shell
 open editor/index.html
 ~~~
+
+## How to contribute
+
+Create PR with changes. Be sure you style your code with:
+
+~~~shell
+npm run style
+~~~
