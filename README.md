@@ -5,6 +5,10 @@ I also created editor for creating them in-place.
 
 ## Editor
 
+Huge thanks to [@EnricoPicci](https://github.com/EnricoPicci)
+with his [`dynamicCombineLatest` implementation](
+https://stackoverflow.com/a/72115266/17886849).
+
 ### Site
 
 Editor site runs on github-pages.
